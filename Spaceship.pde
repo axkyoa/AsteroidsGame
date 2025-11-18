@@ -5,48 +5,46 @@ class Spaceship extends Floater {
     myCenterY = height / 2;
     myXspeed = 0;
     myYspeed = 0;
-    myPointDirection = 0;
+    
   }
 
-  public void hyperspace() {
+  void hyperspace() {
     myCenterX = random(width);
     myCenterY = random(height);
-    myPointDirection = random(360);
     myXspeed = 0;
     myYspeed = 0;
   }
 
-  public void show() {
+  void show() {
     pushMatrix();
     translate(myCenterX, myCenterY);
-    rotate(radians(myPointDirection));
 
-    // Outer ring
+    
     stroke(220);
+    strokeWeight(3);
+    noFill();
+    ellipse(0, 0, 120, 120);
+
+    
+    stroke(180);
     strokeWeight(2);
     noFill();
-    ellipse(0, 0, 100, 100);
+    ellipse(0, 0, 80, 80);
 
-    // 12 panels around circle
+   
     fill(180);
     noStroke();
     for (int i = 0; i < 12; i++) {
-      float angle = radians(i * 30);
-      float px = cos(angle) * 50;
-      float py = sin(angle) * 50;
-
       pushMatrix();
-      translate(px, py);
-      rotate(angle + HALF_PI);
+      rotate(radians(i * 30));
       rectMode(CENTER);
-      rect(0, 0, 18, 8);
+      rect(0, -60, 18, 10, 3); 
       popMatrix();
     }
 
-    // Center
-    fill(200);
+    fill(255);
+    noStroke();
     ellipse(0, 0, 22, 22);
-
     popMatrix();
   }
 }
