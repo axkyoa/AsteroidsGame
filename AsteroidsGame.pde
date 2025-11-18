@@ -15,6 +15,7 @@ void setup() {
 void draw() {
   background(0);
 
+  
   for (int i = 0; i < numStars; i++) {
     stars[i].show();
   }
@@ -22,15 +23,35 @@ void draw() {
   ship.move();
   ship.show();
 }
-// Buttons pressed showcase which they move 
+
 void keyPressed() {
-  if (key == 'a' || key == 'A') ship.myXspeed -= 0.5;
-  if (key == 'd' || key == 'D') ship.myXspeed += 0.3;
-  if (key == 'w' || key == 'W') ship.myYspeed -= 0.3;
-  if (key == 's' || key == 'S') ship.myYspeed += 0.3;
 
-  if (keyCode == SHIFT) ship.hyperspace();
+  
+  if (key == 'a' || key == 'A') {
+    ship.myXspeed -= 0.3;
+  }
 
+
+  if (key == 'd' || key == 'D') {
+    ship.myXspeed += 0.3;
+  }
+
+
+  if (key == 'w' || key == 'W') {
+    ship.myYspeed -= 0.5;
+  }
+
+  // move down
+  if (key == 's' || key == 'S') {
+    ship.myYspeed += 0.3;
+  }
+
+  // "hyperspace"
+  if (keyCode == SHIFT) {
+    ship.hyperspace();
+  }
+
+  // stop ship
   if (key == 'q' || key == 'Q') {
     ship.myXspeed = 0;
     ship.myYspeed = 0;
