@@ -47,12 +47,12 @@ void keyPressed() {
     ship.myYspeed += 0.3;
   }
 
-  // "hyperspace
+  // "hyperspace"
   if (keyCode == SHIFT) {
     ship.hyperspace();
   }
 
-  // stops the ship complety 
+  // stops the ship
   if (key == 'q' || key == 'Q') {
     ship.myXspeed = 0;
     ship.myYspeed = 0;
