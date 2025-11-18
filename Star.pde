@@ -1,15 +1,13 @@
 class Star {
-  float x, y, size;
+  float x, y;
 
   Star() {
     x = random(width);
     y = random(height);
-    size = random(1, 3);
   }
 
   void show() {
-    noStroke();
-    fill(255);
-    ellipse(x, y, size, size);
+    stroke(255);
+    point(x, y);
   }
 }
