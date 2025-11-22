@@ -1,21 +1,23 @@
 Spaceship ship;
 Star[] stars;
 int numStars = 100;
+ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
 
 void setup() {
   size(800, 600);
   ship = new Spaceship();
 
+
   stars = new Star[numStars];
   for (int i = 0; i < numStars; i++) {
     stars[i] = new Star();
+    
   }
 }
 
 void draw() {
   background(0);
 
-  
   for (int i = 0; i < numStars; i++) {
     stars[i].show();
   }
@@ -28,32 +30,32 @@ void keyPressed() {
 
   
   if (key == 'a' || key == 'A') {
-    ship.myXspeed -= 0.3;
+    ship.setMyXspeed(ship.getMyXspeed() - 0.3);
   }
 
-
+  
   if (key == 'd' || key == 'D') {
-    ship.myXspeed += 0.3;
+    ship.setMyXspeed(ship.getMyXspeed() + 0.3);
   }
 
-
+  
   if (key == 'w' || key == 'W') {
-    ship.myYspeed -= 0.5;
+    ship.setMyYspeed(ship.getMyYspeed() - 0.5);
   }
 
-  // move down
+  
   if (key == 's' || key == 'S') {
-    ship.myYspeed += 0.3;
+    ship.setMyYspeed(ship.getMyYspeed() + 0.3);
   }
 
-  // "hyperspace"
+
   if (keyCode == SHIFT) {
     ship.hyperspace();
   }
 
-  // stop ship
+  
   if (key == 'q' || key == 'Q') {
-    ship.myXspeed = 0;
-    ship.myYspeed = 0;
+    ship.setMyXspeed(0);
+    ship.setMyYspeed(0);
   }
 }
