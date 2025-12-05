@@ -44,19 +44,19 @@ void draw() {
 void keyPressed() {
 
   if (key == 'a' || key == 'A') {
-    ship.setMyXspeed(ship.getMyXspeed() - 0.3);
+    ship.setMyXspeed(ship.getMyXspeed() - 0.2);
   }
 
   if (key == 'd' || key == 'D') {
-    ship.setMyXspeed(ship.getMyXspeed() + 0.3);
+    ship.setMyXspeed(ship.getMyXspeed() + 0.2);
   }
 
   if (key == 'w' || key == 'W') {
-    ship.setMyYspeed(ship.getMyYspeed() - 0.5);
+    ship.setMyYspeed(ship.getMyYspeed() - 0.2);
   }
 
   if (key == 's' || key == 'S') {
-    ship.setMyYspeed(ship.getMyYspeed() + 0.3);
+    ship.setMyYspeed(ship.getMyYspeed() + 0.1);
   }
 
   if (keyCode == SHIFT) {
