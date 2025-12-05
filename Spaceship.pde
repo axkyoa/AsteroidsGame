@@ -34,7 +34,7 @@ class Spaceship extends Floater {
       pushMatrix();
       rotate(radians(i * 30));
       rectMode(CENTER);
-      rect(0, -60, 18, 10, 3); 
+      rect(0, -60, 18, 10, 3);
       popMatrix();
     }
 
