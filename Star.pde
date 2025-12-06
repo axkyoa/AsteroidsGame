@@ -1,29 +1,22 @@
 class Star {
-  private float x, y;
+  float x, y;
+  float brightness;
+  float changeRate;
+  float size;
 
   Star() {
     x = random(width);
     y = random(height);
+    brightness = random(150, 255);
+    changeRate = random(0.5, 2);
+    size = random(2, 5);
   }
-
-  public float getX() { 
-    return x; 
-  }
-
-  public float getY() { 
-    return y; 
-  }
-
-  public void setX(float x) { 
-    this.x = x; 
-  }
-
-  public void setY(float y) { 
-    this.y = y; 
-  }
-
   void show() {
-    stroke(255);
-    point(x, y);
+    brightness += changeRate;
+    if (brightness > 255) { brightness = 255; changeRate *= -1; }
+    if (brightness < 150) { brightness = 150; changeRate *= -1; }
+    noStroke();
+    fill(brightness);
+    ellipse(x, y, size, size);
   }
 }
