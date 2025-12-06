@@ -1,10 +1,8 @@
 class Floater {
  
   private float myCenterX, myCenterY;
-  
   private float myXspeed, myYspeed;
 
- 
   public float getMyCenterX() { return myCenterX; }
   public void setMyCenterX(float x) { myCenterX = x; }
 
@@ -22,15 +20,10 @@ class Floater {
     myCenterY += myYspeed;
 
     if (myCenterX > width)  myCenterX = 0;
-    
     if (myCenterX < 0)      myCenterX = width;
-    
     if (myCenterY > height) myCenterY = 0;
-    
     if (myCenterY < 0)      myCenterY = height;
   }
 
-  void show() {
-    
-  }
+  void show() { }
 }
