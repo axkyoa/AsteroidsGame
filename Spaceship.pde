@@ -6,42 +6,44 @@ class Spaceship extends Floater {
     setMyXspeed(0);
     setMyYspeed(0);
   }
-
   void hyperspace() {
     setMyCenterX(random(width));
     setMyCenterY(random(height));
     setMyXspeed(0);
     setMyYspeed(0);
   }
-
   void show() {
     pushMatrix();
     translate(getMyCenterX(), getMyCenterY());
 
-    stroke(220);
-    strokeWeight(3);
-    noFill();
-    ellipse(0, 0, 120, 120);
-
-    stroke(180);
-    strokeWeight(2);
-    noFill();
-    ellipse(0, 0, 80, 80);
-
-    fill(180);
     noStroke();
-    for (int i = 0; i < 12; i++) {
-      pushMatrix();
-      rotate(radians(i * 30));
-      rectMode(CENTER);
-      rect(0, -60, 18, 10, 3);
-      popMatrix();
+    fill(255, 0, 0);
+
+    
+    int s = 5; 
+    int[][] heart = {
+      {0,0,1,0,1,0,0},
+      {0,1,1,1,1,1,0},
+      {1,1,1,1,1,1,1},
+      {1,1,1,1,1,1,1},
+      {0,1,1,1,1,1,0},
+      {0,0,1,1,1,0,0},
+      {0,0,0,1,0,0,0}
+    };
+
+    for (int y = 0; y < heart.length; y++) {
+      for (int x = 0; x < heart[y].length; x++) {
+        if (heart[y][x] == 1) {
+          rect((x - 3) * s, (y - 3) * s, s, s);
+        }
+      }
     }
-
-    fill(255);
-    noStroke();
-    ellipse(0, 0, 22, 22);
-
     popMatrix();
+  }
+  PVector getFirePosition() {
+    float s = 5;
+    float fx = getMyCenterX();
+    float fy = getMyCenterY() - 3 * s;
+    return new PVector(fx, fy);
   }
 }
